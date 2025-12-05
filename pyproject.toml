@@ -1,0 +1,26 @@
+[project]
+name = "reorganizer"
+version = "1.0.0"
+description = "Question bank backup and reorganizer for GIFT and Moodle XML formats"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+authors = [
+    {name = "Question Bank Tools"}
+]
+keywords = ["moodle", "gift", "xml", "questions", "backup"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Topic :: Education",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.scripts]
+reorganizer = "reorganizer.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

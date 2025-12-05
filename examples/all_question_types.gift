@@ -1,0 +1,113 @@
+// ========================================
+// GIFT Format Question Type Examples
+// ========================================
+
+$CATEGORY: $course$/Question Types
+
+// ========================================
+// 1. Multiple Choice (Single Answer)
+// ========================================
+::Multiple Choice - Single Answer::Which planet is closest to the Sun?{
+=Mercury
+~Venus
+~Earth
+~Mars
+}
+
+// ========================================
+// 2. Multiple Choice (Multiple Answers)
+// ========================================
+::Multiple Choice - Multiple Answers::Which of these are programming languages?{
+~%50%Python
+~%50%Java
+~%0%HTML
+~%0%CSS
+}
+
+// ========================================
+// 3. True/False
+// ========================================
+::True/False Question::The Earth is flat.{FALSE}
+
+// ========================================
+// 4. Short Answer
+// ========================================
+::Short Answer::What is the capital of France?{
+=Paris
+=paris
+=PARIS
+}
+
+// ========================================
+// 5. Numerical Question (Exact)
+// ========================================
+::Numerical - Exact::What is 2 + 2?{#4}
+
+// ========================================
+// 6. Numerical Question (Range)
+// ========================================
+::Numerical - Range::What is the value of pi (to 2 decimals)?{#3.14:0.01}
+
+// ========================================
+// 7. Numerical Question (Multiple Ranges)
+// ========================================
+::Numerical - Multiple Ranges::Estimate the population of Tokyo (in millions).{
+#37:2
+#38:1
+}
+
+// ========================================
+// 8. Essay Question
+// ========================================
+::Essay Question::Explain the theory of relativity and its impact on modern physics.{}
+
+// ========================================
+// 9. Cloze Question (Fill in the Blank)
+// ========================================
+::Cloze - Simple::Paris is the {=capital~city~metropolis} of {=France~Spain~Italy}.
+
+// ========================================
+// 10. Cloze Question (Multiple Types)
+// ========================================
+::Cloze - Mixed::The speed of light is approximately {#299792458:500} m/s, which was discovered by {=Einstein~Newton} in the {=20th~19th} century.
+
+// ========================================
+// 11. Cloze Question (Complex)
+// ========================================
+::Cloze - Complex::In programming, {=variables~constants} store data, and {=functions~methods} perform operations. The value {#42} is often used as a test number.
+
+// ========================================
+// 12. Matching Question
+// ========================================
+::Matching Question::Match the programming languages with their primary use.{
+=Python -> Data Science
+=JavaScript -> Web Development
+=C++ -> System Programming
+=SQL -> Database Management
+}
+
+// ========================================
+// 13. Matching Question (Complex)
+// ========================================
+::Matching - Capitals::Match each country with its capital city.{
+=France -> Paris
+=Japan -> Tokyo
+=Brazil -> Brasília
+=Egypt -> Cairo
+=Australia -> Canberra
+}
+
+// ========================================
+// 14. Description/Information (No Answer)
+// ========================================
+::Information Block::This is just informational text with no answer expected. It serves as a separator or context provider.
+
+// ========================================
+// 15. Multiple Choice with Feedback
+// ========================================
+::Multiple Choice with Feedback::What is the largest ocean on Earth?{
+=Pacific Ocean # Correct! The Pacific is the largest ocean.
+~Atlantic Ocean # Incorrect. The Atlantic is the second largest.
+~Indian Ocean # Incorrect. The Indian Ocean is smaller.
+~Arctic Ocean # Incorrect. The Arctic is the smallest ocean.
+}
