@@ -1,84 +1,92 @@
-# Question Bank Reorganizer
+# Reorganizador de Banco de Preguntas
 
-A modular Python tool for backing up and reorganizing question banks in GIFT or Moodle XML format.
+Herramienta modular en Python para respaldar y reorganizar bancos de preguntas en formato GIFT o Moodle XML.
 
-## Features
+## Características
 
-- **Export**: Convert monolithic question bank files into organized directory structures based on categories
-- **Collect**: Reconstruct monolithic files from organized directory structures
-- **Format Support**: Works with both GIFT and Moodle XML formats
-- **Question Types**: Supports multiple choice, cloze, matching, numerical, shortanswer, and essay questions
-- **Safe Processing**: Preserves escape sequences, special characters, and code blocks
-- **Category Management**: Automatically handles category hierarchies
+- **Exportar**: Convierte archivos monolíticos de bancos de preguntas en estructuras de directorios organizadas por categorías
+- **Recolectar**: Reconstruye archivos monolíticos desde estructuras de directorios organizadas
+- **Soporte de Formatos**: Funciona con formatos GIFT y Moodle XML
+- **Tipos de Preguntas**: Soporta opción múltiple, cloze, emparejamiento, numérico, respuesta corta y ensayo
+- **Procesamiento Seguro**: Preserva secuencias de escape, caracteres especiales y bloques de código
+- **Gestión de Categorías**: Maneja automáticamente jerarquías de categorías
 
-## Installation
+## Instalación
 
-Using UV:
+Usando UV:
 
 ```bash
 uv pip install -e .
 ```
 
-## Usage
+## Uso
 
-### Export Questions to Directory Structure
+### Exportar Preguntas a Estructura de Directorios
 
-Export GIFT format:
+Exportar formato GIFT:
 ```bash
 reorganizer export gift full.gift -o gift_backup
 ```
 
-Export Moodle XML format:
+Exportar formato Moodle XML:
 ```bash
 reorganizer export xml questions.xml -o xml_backup
 ```
 
-### Collect Questions from Directory Structure
+### Recolectar Preguntas desde Estructura de Directorios
 
-Collect GIFT format:
+Recolectar formato GIFT:
 ```bash
 reorganizer collect gift gift_backup -o full_recompiled.gift
 ```
 
-Collect Moodle XML format:
+Recolectar formato Moodle XML:
 ```bash
 reorganizer collect xml xml_backup -o questions_recompiled.xml
 ```
 
-## Project Structure
+## Estructura del Proyecto
 
-The project is modularized into several components:
+El proyecto está modularizado en varios componentes:
 
-- `cli.py` - Command-line interface
-- `reorganizer.py` - Main coordinator class
-- `text_utils.py` - Text processing utilities (escape sequences, special characters)
-- `file_utils.py` - File handling utilities (safe read/write, sanitization)
-- `xml_utils.py` - XML processing utilities (CDATA, HTML entities)
-- `gift_processor.py` - GIFT format export/collect operations
-- `xml_processor.py` - Moodle XML format export/collect operations
+- `cli.py` - Interfaz de línea de comandos
+- `reorganizer.py` - Clase coordinadora principal
+- `text_utils.py` - Utilidades de procesamiento de texto (secuencias de escape, caracteres especiales)
+- `file_utils.py` - Utilidades de manejo de archivos (lectura/escritura segura, sanitización)
+- `xml_utils.py` - Utilidades de procesamiento XML (CDATA, entidades HTML)
+- `gift_processor.py` - Operaciones de exportar/recolectar formato GIFT
+- `xml_processor.py` - Operaciones de exportar/recolectar formato Moodle XML
 
-## Special Character Handling
+## Manejo de Caracteres Especiales
 
-The tool includes robust handling for:
+La herramienta incluye manejo robusto para:
 
-- **Escape sequences** in code blocks (e.g., `\n`, `\0`, `\\`)
-- **Fullwidth characters** for protecting GIFT syntax
-- **HTML entities** converted to fullwidth equivalents
-- **CDATA sections** for XML safety
-- **Markdown code blocks** with backslash protection
+- **Secuencias de escape** en bloques de código (ej., `\n`, `\0`, `\\`)
+- **Caracteres fullwidth** para proteger sintaxis GIFT
+- **Entidades HTML** convertidas a equivalentes fullwidth
+- **Secciones CDATA** para seguridad XML
+- **Bloques de código Markdown** con protección de backslashes
 
-## Development
+## Desarrollo
 
-Run tests (if available):
+Ejecutar tests (si están disponibles):
 ```bash
 uv run pytest
 ```
 
-Format code:
+Formatear código:
 ```bash
 uv run black src/
 ```
 
-## License
+## Licencia
 
-This project is provided as-is for educational purposes.
+Este proyecto se proporciona tal cual para fines educativos.
+
+## Documentación Adicional
+
+- `USAGE.md` - Guía detallada de uso con ejemplos
+- `ARCHITECTURE.md` - Documentación de diseño técnico
+- `MIGRATION.md` - Guía de migración desde el script antiguo
+- `QUICKREF.md` - Referencia rápida de comandos comunes
+- `CHANGELOG.md` - Historial de cambios

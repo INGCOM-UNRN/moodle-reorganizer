@@ -9,6 +9,11 @@ All notable changes to the Question Bank Reorganizer project will be documented 
 - Added automatic detection of cloze questions (questions with embedded answers)
 - Improved support for multiple question types: cloze, matching, numerical, shortanswer, and essay
 
+### Documentation
+- Complete Spanish translation of all documentation
+- Updated USAGE.md with more detailed examples
+- New bilingual documentation structure (Spanish/English)
+
 ## [1.0.0] - 2025-11-12
 
 ### Added
