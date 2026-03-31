@@ -49,3 +49,7 @@ Thumbs.db
 backup/
 *.bak
 *.tmp
+
+
+originales/*
+test_export/*

@@ -23,7 +23,7 @@ class GIFTProcessor:
             return False
         
         content = '\n' + content
-        blocks = re.split(r'(?=\n(?:^//.*\n)*^::.*::)', content, flags=re.MULTILINE)
+        blocks = re.split(r'(?=\n^// .*\.gift\n)', content, flags=re.MULTILINE)
         
         current_category = ''
         question_count = 0
@@ -42,7 +42,6 @@ class GIFTProcessor:
                 path_parts = [self.file_handler.sanitize_dirname(part) for part in category_def.split('/') 
                              if part.strip() and part != '$course$']
                 current_category = os.path.join(*path_parts) if path_parts else ''
-                continue
             
             title_match = re.search(r'::(.*?)::', original_block, re.DOTALL)
             if not title_match:
@@ -189,8 +188,9 @@ class GIFTProcessor:
                     content = self.file_handler.safe_read_preserving_escapes(filepath)
                     if content is not None:
                         content = self.text_processor.protect_backslashes_in_code(content)
-                        content = self.text_processor.apply_forward_substitutions(content)
+#                        content = self.text_processor.apply_forward_substitutions(content) # FIXME: la substitución se hace fuera de las guardas de código "`" y "```"
                         
+                        out.write(f"// {filepath}\n")
                         out.write(content.strip() + '\n\n')
                         question_count += 1
                         print(f"  Added: {rel_path}")
